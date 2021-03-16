@@ -37,4 +37,7 @@ export class UserEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onUpdate(user: User): void {
+    this.userService.update(user);
+  } 
 }
