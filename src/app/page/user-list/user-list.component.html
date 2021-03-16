@@ -4,6 +4,12 @@
     <div class="col-12 mt-2">
       <input (keyup)="onChangePhrase($event)" class="form-control mb-3" type="text" placeholder="Search in name...">
     </div>
+    <div class="col-12 mt-2">
+      <button [routerLink]="['user/' + 0]" class="btn btn-primary btn-block mt-3 mb-3">
+        <i class="fa fa-file-o"></i>
+      </button>
+    </div>
+
     <table class="table table-striped">
       <thead>
         <tr>
