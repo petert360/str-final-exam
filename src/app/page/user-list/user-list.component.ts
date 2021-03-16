@@ -11,6 +11,7 @@ import { UserService } from 'src/app/service/user.service';
 export class UserListComponent implements OnInit {
 
   users$: Observable<User[]> = this.userService.getAll();
+  phrase: string = "";
 
   constructor(
     private userService: UserService,
@@ -23,4 +24,8 @@ export class UserListComponent implements OnInit {
     this.userService.remove(user);
   } 
 
+
+  onChangePhrase(user: User): void {
+    this.phrase = (user.target as HTMLInputElement).value;
+  }
 }
