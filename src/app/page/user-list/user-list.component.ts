@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/service/user.service';
@@ -16,16 +17,16 @@ export class UserListComponent implements OnInit {
 
   constructor(
     private userService: UserService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
   }
 
   onDelete(user: User): void {
-    let resp = confirm ("Nyomja meg az OK gombot a törléshez.")
-    if (resp == true) {
-      this.userService.remove(user);
-    }
+    this.userService.remove(user).subscribe(
+      ev => confirm("Nyomja meg az OK gombot a törléshez.")
+    );
   }
 
   onChangePhrase(user: User): void {
