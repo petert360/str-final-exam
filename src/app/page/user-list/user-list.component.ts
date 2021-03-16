@@ -12,6 +12,7 @@ export class UserListComponent implements OnInit {
 
   users$: Observable<User[]> = this.userService.getAll();
   phrase: string = "";
+  columnKey: string = '';
 
   constructor(
     private userService: UserService,
@@ -22,10 +23,14 @@ export class UserListComponent implements OnInit {
 
   onDelete(user: User): void {
     this.userService.remove(user);
-  } 
+  }
 
 
   onChangePhrase(user: User): void {
     this.phrase = (user.target as HTMLInputElement).value;
+  }
+
+  onColumnSelect(key: string): void {
+    this.columnKey = key;
   }
 }
