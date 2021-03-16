@@ -38,7 +38,7 @@ export class UserEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onUpdate(form: NgForm, user: User): void {
+  onUpdate(user: User): void {
     if (user.id === 0) {
       this.userService.create(user).subscribe(
       ev => this.router.navigate(['']),
