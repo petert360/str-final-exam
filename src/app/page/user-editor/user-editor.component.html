@@ -10,7 +10,11 @@
         class="form-control"
         type="text"
         name="name"
-        [(ngModel)]="user.name">
+        [(ngModel)]="user.name"
+        pattern=".{8,40}"
+        required
+        #userName="ngModel">
+        <small [hidden]="userName.valid" id="nameHelp" class="form-text text-muted">Az név kitöltése kötelező, min. 8, max. 40 karakterrel.</small>
       </div>
       <div class="form-group">
         <label>Email</label>
@@ -39,7 +43,7 @@
           <option [ngValue]="false">inactive</option>
         </select>
       </div>
-      <button type="submit" class="btn btn-primary btn-block mt-5">
+      <button (click)="onUpdate(user)" type="submit" class="btn btn-primary btn-block mt-5">
         <i class="fa fa-save"></i>
       </button>
     </form>
