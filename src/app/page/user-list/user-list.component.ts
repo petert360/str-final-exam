@@ -22,10 +22,23 @@ export class UserListComponent implements OnInit {
   }
 
   onDelete(user: User): void {
+    let resp = confirm ("Nyomja meg az OK gombot a törléshez.")
+    if (resp == true) {
+      this.userService.remove(user).subscribe(
+        () => {
+          this.userService.getAll();
+        }
+      );
+    }
+  }
+
+/*
+  onDelete(user: User): void {
     this.userService.remove(user).subscribe(
       ev => confirm("Nyomja meg az OK gombot a törléshez.")
     );
   }
+*/
 
   onChangePhrase(event: Event): void {
     this.phrase = (event.target as HTMLInputElement).value;
