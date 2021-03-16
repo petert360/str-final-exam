@@ -26,19 +26,11 @@ export class UserListComponent implements OnInit {
     if (resp == true) {
       this.userService.remove(user).subscribe(
         () => {
-          this.userService.getAll();
+          this.users$ = this.userService.getAll();
         }
       );
     }
   }
-
-/*
-  onDelete(user: User): void {
-    this.userService.remove(user).subscribe(
-      ev => confirm("Nyomja meg az OK gombot a törléshez.")
-    );
-  }
-*/
 
   onChangePhrase(event: Event): void {
     this.phrase = (event.target as HTMLInputElement).value;
