@@ -51,7 +51,7 @@
           <option [ngValue]="false">inactive</option>
         </select>
       </div>
-      <button (click)="onUpdate(user)" type="submit" class="btn btn-primary btn-block mt-5">
+      <button [disabled]="userForm.invalid" (click)="onUpdate(user)" type="submit" class="btn btn-primary btn-block mt-5">
         <i class="fa fa-save"></i>
       </button>
     </form>
